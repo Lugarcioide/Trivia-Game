@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia</title>
+</head>
+
+<body>
+    <div id="pared"></div>
+
+    <div id="screen">
+        <div id="estrellas"></div>
+        <div id="brillo"></div>
+
+        <!-- *-------------Pantalla de Inicio --------------->
+        <div id="pantallaInicio" class="pantalla">
+            <h1 class="titulo tituloGrande">Play</h1>
+            <p class="subtitulo">Press any key to start</p>
+        </div>
+
+        <!-- *-------------Pantalla de Sign up  --------------->
+        <div id="pantallaSignup" class="pantalla">
+            <h1 class="titulo">Sign up</h1>
+
+            <form id="formRegistro">
+                <div class="fila">
+                    <label class="etiqueta" for="registroUsername">User:</label>
+                    <input type="text" id="registroUsername" autocomplete="username">
+                </div>
+
+                <div class="fila">
+                    <label class="etiqueta" for="registroPassword">Password:</label>
+                    <input type="password" id="registroPassword" autocomplete="new-password">
+                </div>
+
+                <p id="registroMensaje"></p>
+
+                <button type="submit" id="btnRegistro">Sign up</button>
+            </form>
+
+            <p class="cambiar-pantalla">
+                Already have an account?
+                <button type="button" id="irALogin" class="link">Log in</button>
+            </p>
+        </div>
+
+        <!-- *-------------Pantalla de Log in  --------------->
+        <div id="pantallaLogin" class="pantalla">
+            <h1 class="titulo">Log in</h1>
+
+            <form id="formLogin">
+                <div class="fila">
+                    <label class="etiqueta" for="loginUsername">User:</label>
+                    <input type="text" id="loginUsername" autocomplete="username">
+                </div>
+
+                <div class="fila">
+                    <label class="etiqueta" for="loginPassword">Password:</label>
+                    <input type="password" id="loginPassword" autocomplete="current-password">
+                </div>
+
+                <p id="loginMensaje"></p>
+
+                <button type="submit" id="btnLogin">Log in</button>
+            </form>
+
+            <p class="cambiar-pantalla">
+                Don't have an account?
+                <button type="button" id="irARegistro" class="link">Sign up</button>
+            </p>
+        </div>
+
+        <!-- *-------------Pantalla Perfil  --------------->
+        <div id="pantallaProfile" class="pantalla">
+            <h1 class="titulo" id="menuBienvenida">Welcome!</h1>
+
+            <div id="menuContenido">
+                <div id="menuPerfil">
+                    <img id="menuFoto" src="" alt="Profile picture" width="140" height="140">
+                    <button type="button" id="btnLogOut" class="link">Log out</button>
+                </div>
+
+                <div id="menuBotones">
+                    <button type="button" id="MenuCollection">My collection</button>
+                    <button type="button" id="MenuCreate">Create Trivia</button>
+                    <button type="button" id="MenuChangePfp">Change PFP</button>
+                    <p id="menuMensaje"></p>
+                    <input type="file" id="inputFoto" accept="image/*">
+                    <button type="button" id="MenuPlay">Play</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- *-------------Pantalla de Crear Trivia --------------->
+        <div id="pantallaCreator" class="pantalla">
+            <h1 class="titulo">Trivia Creator</h1>
+
+            <div id="CreatorPreguntas"></div>
+
+            <p id="CreatorMensaje"></p>
+
+            <button type="button" id="AddQuestion">Add Question</button>
+            <button type="button" id="CreatorGoBack">Go Back</button>
+            <button type="button" id="CreatorContinue">Continue</button>
+        </div>
+
+        <!-- *-------------Pantalla de Your Collection --------------->
+        <div id="pantallaYourCollection" class="pantalla">
+            <h1 class="titulo">Your collection</h1>
+
+            <div class="fila">
+                <label class="etiqueta" for="ordenColeccion">Sort by:</label>
+                <select id="ordenColeccion">
+                    <option value="">Newest</option>
+                    <option value="popular-desc">Most to least popular</option>
+                    <option value="popular-asc">Least to most popular</option>
+                    <option value="jugadas-desc">Most to least played</option>
+                    <option value="jugadas-asc">Least to most played</option>
+                </select>
+            </div>
+
+            <div class="tabla-wrap">
+                <table class="tabla">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Rating</th>
+                            <th>Play count</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="cuerpo-coleccion"></tbody>
+                </table>
+            </div>
+
+            <input type="text" id="buscadorColeccion" placeholder="Search by category">
+            <button class="btn-volver" type="button" id="ColeccionGoBack">Go Back</button>
+        </div>
+
+        <!-- *-------------Pop-up de confirmación borrar --------------->
+
+        <div id="popup2" hidden>
+            <div class="popup-caja">
+                <h2 class="popup-titulo2">Delete? This can't be undone</h2>
+                <p id="popup-borrar"></p>
+
+                <button type="button" id="btn-si2">YES</button>
+                <button type="button" id="btn-no2">NO</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- *-------------Pantalla de Ponerle Nombre --------------->
+    <div id="pantallaNameTrivia" class="pantalla">
+        <h1 class="titulo">Trivia Creator</h1>
+        <h2 class="subtitulo">Name your trivia</h2>
+        <input type="text" id="TriviaTitle" placeholder="Trivia Name">
+
+        <p id="NombreMensaje"></p>
+
+        <button type="button" id="NombreGoBack">Go Back</button>
+        <button type="button" id="CreatorSave">Continue</button>
+    </div>
+
+
+    <!-- *-------------Pantalla de Jugadores --------------->
+    <div id="pantallaJugadores" class="pantalla">
+        <button id="btnVolver" class="macaquito">Macaco</button>
+        <h1 class="titulo">Players</h1>
+        <p class="subtitulo">How many are playing?</p>
+        <div id="opcionesJugadores">
+            <button id="btnJUG1" class="btnJugador">1</button>
+            <button id="btnJUG2" class="btnJugador">2</button>
+        </div>
+    </div>
+
+    <!-- *-------------Pantalla de Configuración --------------->
+    <div id="pantallaConfig" class="pantalla">
+        <button id="btnVolver" class="macaquito">Macaco</button>
+        <h1 class="titulo">Game Mode</h1>
+
+        <form id="modoJuego">
+            <fieldset class="fila">
+                <legend class="etiqueta">Difficulty:</legend>
+                <label class="opcion"><input type="radio" id="easy" name="difficulty" value="easy" checked>Easy</label>
+                <label class="opcion"><input type="radio" id="medium" name="difficulty" value="medium">Medium</label>
+                <label class="opcion"><input type="radio" id="hard" name="difficulty" value="hard">Hard</label>
+            </fieldset>
+
+            <div class="fila">
+                <label class="etiqueta" for="rounds">Rounds:</label>
+                <div class="slider">
+                    <span>5</span>
+                    <div class="sliderPista">
+                        <input type="range" id="rounds" name="amount" min="5" max="25" value="20">
+                        <output id="roundsOutput" for="rounds">20</output>
+                    </div>
+                    <span>25</span>
+                </div>
+            </div>
+
+            <div class="fila">
+                <label class="etiqueta" for="categoria">Categories:</label>
+                <select id="categoria" name="category"></select>
+                <button type="button" id="btnWorldWide">Go World Wide</button>
+            </div>
+
+            <fieldset class="fila">
+                <legend class="etiqueta">Type:</legend>
+                <label class="opcion"><input type="radio" id="VoF" name="type" value="boolean">T or F</label>
+                <label class="opcion opcionAncha"><input type="radio" id="multiple" name="type" value="multiple"
+                        checked>Multiple choice</label>
+            </fieldset>
+
+            <p id="mensajeError"></p>
+
+            <button id="btnOK" class="btnMorado" type="button">OK</button>
+        </form>
+    </div>
+
+    <!-- *-------------Pantalla de World Wide --------------->
+    <div id="pantallaUsersCreations" class="pantalla">
+        <h1 class="titulo">Users’ creations</h1>
+        <div class="fila">
+            <label class="etiqueta" for="orden">Sort by:</label>
+            <select id="orden">
+                <option value="">Newest</option>
+                <option value="popular-desc">Most to least popular</option>
+                <option value="popular-asc">Least to most popular</option>
+                <option value="jugadas-desc">Most to least played</option>
+                <option value="jugadas-asc">Least to most played</option>
+            </select>
+        </div>
+
+        <div class="tabla-wrap">
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th colspan="2">Author</th>
+                        <th>Rating</th>
+                        <th>Play count</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpo-tabla">
+                    <tr class="fila">
+                        <td class="categoria"></td>
+                        <td class="autor"></td>
+                        <td class="avatar-cell"></td>
+                        <td><span class="estrellas" aria-label="5 de 5">★★★★★</span></td>
+                        <td class="conteo"></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <input type="text" id="buscador" placeholder="Search by category or author">
+        <button type="button" id="buscar">Search</button>
+
+        <button class="btn-volver" type="button">Go Back</button>
+
+        <!-- *-------------Pop-up de confirmación --------------->
+        <div class="popup" hidden>
+            <div class="popup-caja">
+                <h2 class="popup-titulo">Are you sure you want to play</h2>
+                <p id="popup-categoria"></p>
+
+                <button type="button" id="btn-si">YES</button>
+                <button type="button" id="btn-no">NO</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- *-------------Pantalla de 1 Jugador --------------->
+    <div id="pantallaJuego" class="pantalla">
+        <h2 id="question0" class="pregunta"></h2>
+        <fieldset id="questions0" class="respuestas">
+            <label><input type="radio" class="answers" name="0"><span></span></label>
+            <label><input type="radio" class="answers" name="0"><span></span></label>
+            <label><input type="radio" class="answers" name="0"><span></span></label>
+            <label><input type="radio" class="answers" name="0"><span></span></label>
+        </fieldset>
+        <button id="btnConfirm" class="btnMorado">Confirm</button>
+    </div>
+
+    <!-- *-------------Pantalla de 2 Jugadores --------------->
+    <div id="pantallaJuego2" class="pantalla">
+        <div id="columnas">
+            <div id="player1" class="columnaJugador">
+                <h2 id="question1" class="pregunta"></h2>
+                <fieldset id="questions1" class="respuestas">
+                    <label><input type="radio" class="answers" name="1"><span></span></label>
+                    <label><input type="radio" class="answers" name="1"><span></span></label>
+                    <label><input type="radio" class="answers" name="1"><span></span></label>
+                    <label><input type="radio" class="answers" name="1"><span></span></label>
+                </fieldset>
+            </div>
+
+            <div id="divisor"></div>
+
+            <div id="player2" class="columnaJugador">
+                <h2 id="question2" class="pregunta"></h2>
+                <fieldset id="questions2" class="respuestas">
+                    <label><input type="radio" class="answers" name="2"><span></span></label>
+                    <label><input type="radio" class="answers" name="2"><span></span></label>
+                    <label><input type="radio" class="answers" name="2"><span></span></label>
+                    <label><input type="radio" class="answers" name="2"><span></span></label>
+                </fieldset>
+            </div>
+        </div>
+
+        <button id="btnConfirm2" class="btnMorado">Confirm</button>
+    </div>
+
+    <!-- *------------- Pantalla Final --------------->
+    <div id="pantallaFinal" class="pantalla">
+
+        <!-- Resultado 1 jugador -->
+        <section id="resultados1P">
+            <h2 class="nombreJugador">Player 1</h2>
+            <p id="resultado" class="puntaje"></p>
+        </section>
+
+        <!-- Resultado 2 jugadores -->
+        <section id="resultados2P">
+            <div id="resultsPlayer1" class="resultadoJugador">
+                <h2 id="whatPlayer1" class="nombreJugador">Player 1</h2>
+                <div class="tarjeta">
+                    <h3 id="tituloJ1" class="estado">Winner</h3>
+                    <p id="resultadoJ1" class="puntaje"></p>
+                </div>
+            </div>
+
+            <div id="resultsPlayer2" class="resultadoJugador">
+                <h2 id="whatPlayer2" class="nombreJugador">Player 2</h2>
+                <div class="tarjeta">
+                    <h3 id="tituloJ2" class="estado">Womp womp...</h3>
+                    <p id="resultadoJ2" class="puntaje"></p>
+                </div>
+            </div>
+        </section>
+
+        <div id="btnEnd">
+            <button id="btnMenu" class="btnTexto">Go to Main Menu</button>
+            <button id="btnRestart" class="btnTexto">Restart</button>
+        </div>
+    </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>

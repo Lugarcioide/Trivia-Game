@@ -1,0 +1,57 @@
+[
+  {
+    "_id": {
+      "$oid": "6a0000000000000000000001"
+    },
+    "username": "lugarcioide",
+    "password": "$2b$10$Jlp59KbO2JO932JJ44LMpeUBhOcUhSl8uAV/Kphyr7Iz7kSq/fLMa",
+    "foto": "img/lugarcioide.png",
+    "fechaDeCreacion": {
+      "$date": "2026-11-24T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a0000000000000000000002"
+    },
+    "username": "juanfran",
+    "password": "$2b$10$E.Wa6uvmZ.tywAW3mZjmVemyYS1iOm.7V7EdiEQwRfxKnzOdGB7Wu",
+    "foto": "img/kermit.png",
+    "fechaDeCreacion": {
+      "$date": "2026-11-24T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a0000000000000000000003"
+    },
+    "username": "gumi",
+    "password": "$2b$10$Q.GoZcCzRbp5UD/p9BBvnelloWRtpimNMj5K57gXMbwA67xgr.7eK",
+    "foto": null,
+    "fechaDeCreacion": {
+      "$date": "2026-11-24T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a0000000000000000000004"
+    },
+    "username": "Bartolomeo",
+    "password": "$2b$10$.y.BR1lL2Fw3XznmUAKMneMGPkILQi73aaTROOEvrFjMhRi5km9US",
+    "foto": null,
+    "fechaDeCreacion": {
+      "$date": "2026-11-24T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a0000000000000000000005"
+    },
+    "username": "popilopopilopopilo",
+    "password": "$2b$10$KGDkH1p9q3A6oPagEyipnO/n0DKcfhc1cJmiWGn6Hz10r.gerfWXy",
+    "foto": null,
+    "fechaDeCreacion": {
+      "$date": "2026-11-24T00:00:00.000Z"
+    }
+  }
+]
