@@ -15,7 +15,7 @@ const triviaSchema = new mongoose.Schema({
     category: { type: String, required: true },
     rating: { type: Number, default: 0, min: 0, max: 5 },
     vecesJugada: { type: Number, default: 0, min: 0 },
-    preguntas: { type: [preguntaSchema], required: true },
+    questions: { type: [preguntaSchema], required: true },
     usuario: { type: mongoose.Schema.Types.ObjectId, ref: "Usuario", required: true }
 },
 
