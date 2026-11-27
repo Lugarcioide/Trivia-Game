@@ -2,7 +2,7 @@ import { guardarPreguntas, rellenarPreguntas } from './otdb/main.js';
 import { showPantalla } from './otdb/router.js';
 import { PANTALLA_JUEGO, PANTALLA_JUEGO2, PANTALLA_PROFILE, PANTALLA_SIGNUP } from './otdb/router.js';
 
-const BASE_URL = "http://localhost:3000"
+const BASE_URL = "https://trivia-game-o3cf.onrender.com"
 
 //klrngrelkngelkg
 // =====================================================================
