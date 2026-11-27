@@ -4,6 +4,9 @@ import { PANTALLA_JUEGO, PANTALLA_JUEGO2, PANTALLA_PROFILE, PANTALLA_SIGNUP } fr
 
 const BASE_URL = "http://localhost:3000"
 
+//tu vieja 
+
+
 // =====================================================================
 //  SESIÓN (token + usuario en localStorage)
 // =====================================================================
